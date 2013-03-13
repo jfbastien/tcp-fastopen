@@ -12,8 +12,8 @@ ctrlc() {
   exit
 }
 trap ctrlc SIGINT
-rm -r ./client
-rm -r ./serverlogs
+rm -rf ./client
+rm -rf ./serverlogs
 ./tfo-test/disable_tfo.sh
 echo "TFO: `./tfo-test/status_tfo.sh`"
 for delay in 10 50 100
@@ -30,7 +30,7 @@ do
 done
 killall -9 python
 
-mkdir -p ouput-figures
+mkdir -p output-figures
 DISPLAY=:1 ./plot.py
 
 exit 0

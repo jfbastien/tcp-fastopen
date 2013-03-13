@@ -79,8 +79,8 @@ if __name__ == '__main__':
             page in result_tfo and len(result_tfo[page])):
           sec_no_tfo = result_no_tfo[page][-1].end
           sec_tfo = result_tfo[page][-1].end
-          tfo_len = np.array([result_tfo[page][i].end-result_tfo[page][i].start for i in range(len(result_no_tfo[page]))])
-          tfo_start = np.array([result_tfo[page][i].start for i in range(len(result_no_tfo[page]))])
+          tfo_len = np.array([result_tfo[page][i].end-result_tfo[page][i].start for i in range(len(result_tfo[page]))])
+          tfo_start = np.array([result_tfo[page][i].start for i in range(len(result_tfo[page]))])
           no_tfo_len = np.array([result_no_tfo[page][i].end-result_no_tfo[page][i].start for i in range(len(result_no_tfo[page]))])
           no_tfo_start = np.array([result_no_tfo[page][i].start for i in range(len(result_no_tfo[page]))])
         
@@ -90,12 +90,12 @@ if __name__ == '__main__':
 
           plt.figure()
           plt.subplot(111)
-          rects2 = plt.barh(ind, no_tfo_len, height,
+          rects2 = plt.barh(np.arange(len(no_tfo_len)), no_tfo_len, height,
               color='g',
               left=no_tfo_start,
               )
 
-          rects1 = plt.barh(ind, tfo_len, height,
+          rects1 = plt.barh(np.arange(len(tfo_len)), tfo_len, height,
               color='r',
               left=tfo_start,
               #align="center"
