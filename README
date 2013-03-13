@@ -38,6 +38,8 @@ locally-cached page), all running on an Amazon EC2 virtual machine
 with a custom Linux kernel with TFO support. We succeeded in
 reproducing the results from the paper.
 
-Our results and code can be obtained on our Github TFO
-repository. They can be reproduced by using our Amazon EC2 AMI (named
-cs244-13-tcp-fastopen) and running the run.sh script.
+Our results and code can be obtained on our Github TFO repository.
+They can be reproduced by using our Amazon EC2 AMI (named
+cs244-13-tcp-fastopen) and running sudo run.sh, located under
+~/tcp-fastopen/. Make sure the VNC server is on display 1, it
+should be by default.
