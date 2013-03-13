@@ -1,0 +1,43 @@
+Stanford CS244 '13: TCP Fast Open
+Winter 2013
+JF Bastien & Sam D'Amico
+
+===============================================================================
+TCP Fast Open
+http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en/us/pubs/archive/37517.pdf
+===============================================================================
+
+Read more at: http://reproducingnetworkresearch.wordpress.com/2013/03/13/tcp-fastopen/‎
+
+===============================================================================
+Abstract
+===============================================================================
+
+The Chrome web browser keeps HTTP connections open in the hopes of
+reusing them and reducing the cost of creating TCP connections, but
+even then about 1/3 of HTTP requests are with new TCP
+connections. CDNs complicate things further by changing the server
+which feeds different parts of a page. The purpose of TCP Fast Open
+(TFO) is to exchange data during initial TCP handshake to remove an
+RTT per TCP connection and reduce flow completion time, which makes
+websites load faster.
+
+
+===============================================================================
+Reproducing Results
+===============================================================================
+
+Our first goal was to replicate table 1 in the TFO paper, which shows
+page load times, both with and without TFO, for various common web
+pages. For this we fetched amazon.com, nytimes.com, wsj.com and the
+TCP Wikipedia pages, with all of their dependencies, and measured the
+page load time with and without TFO. We tried this with 20ms, 100ms,
+and 200ms of round-trip time, which we simulated with Mininet along
+with a custom Chrome shell and Python’s simple HTTP server (serving a
+locally-cached page), all running on an Amazon EC2 virtual machine
+with a custom Linux kernel with TFO support. We succeeded in
+reproducing the results from the paper.
+
+Our results and code can be obtained on our Github TFO
+repository. They can be reproduced by using our Amazon EC2 AMI (named
+cs244-13-tcp-fastopen) and running the run.sh script.
