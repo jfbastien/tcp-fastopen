@@ -39,7 +39,9 @@ with a custom Linux kernel with TFO support. We succeeded in
 reproducing the results from the paper.
 
 Our results and code can be obtained on our Github TFO repository.
-They can be reproduced by using our Amazon EC2 AMI (named
-cs244-13-tcp-fastopen) and running sudo run.sh, located under
-~/tcp-fastopen/. Make sure the VNC server is on display 1, it
-should be by default.
+They can be reproduced by using our Amazon EC2 AMI:
+named 474470461255/cs244-13-tcp-fastopen on the US-west-2 Oregon
+location, AMI ami-c41085f4, launch as c1.xlarge, with security group
+quicklaunch-1 (to enable SSH), and username “ubuntu”. Once logged on,
+run sudo run.sh, located under ~/tcp-fastopen/. Make sure the VNC
+server is on display 1, it should be by default.
